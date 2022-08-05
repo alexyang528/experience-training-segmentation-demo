@@ -1,12 +1,13 @@
 import requests
 import streamlit as st
 
-st.set_page_config(page_title="Rich Text Segmentation Demo")
+st.set_page_config(page_title="Rich Text Segmentation Demo", layout="wide")
 
 
 @st.experimental_memo(ttl=600)
 def get_results(URL):
     return requests.get(URL).json()
+
 
 st.header("Rich Text Segmentation Test")
 
@@ -55,6 +56,3 @@ right.write("### Segmented Rich Text")
 left.markdown(selection)
 for segment in segments:
     right.info(segment)
-
-
-right.write()
